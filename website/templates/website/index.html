@@ -733,9 +733,10 @@
 				<div class="px-4">
 					<h2 class="font-weight-bold line-height-1 mb-2">Contact Us</h2>
 					<p class="text-3 mb-4">LOREM IPSUM DOLOR SIT A MET</p>
-					<form class="contact-form form-style-2 pr-xl-5" action="php/contact-form.php" method="POST">
+					<form class="contact-form form-style-2 pr-xl-5" method="POST">
+						{% csrf_token %}
 						<div class="contact-form-success alert alert-success d-none mt-4">
-							<strong>Success!</strong> Your message has been sent to us.
+							<strong>Success!</strong> Your message has been sent to us {{ username }}.
 						</div>
 
 						<div class="contact-form-error alert alert-danger d-none mt-4">
@@ -768,9 +769,12 @@
 						</div>
 						<div class="form-row">
 							<div class="form-group col">
-								<input type="submit" value="SUBMIT"
+								<button type="submit"
 									class="btn btn-primary btn-rounded font-weight-semibold px-5 btn-py-2 text-2"
-									data-loading-text="Loading...">
+									data-loading-text="Loading...">Submit</button>
+								<!-- <input type="submit" value="SUBMIT"
+									class="btn btn-primary btn-rounded font-weight-semibold px-5 btn-py-2 text-2"
+									data-loading-text="Loading..."> -->
 							</div>
 						</div>
 					</form>
